@@ -152,6 +152,28 @@ body {
     margin-left: 0;
 }
 
+button:hover {
+    background-color: #787878;
+}
+
+.clicked {
+    background-color:  #FFFFFF;
+    color: #FF9500;
+}
+
+.key--operator:hover,
+.key--equal:hover,
+.clicked:hover {
+    background-color: #f7d3a1;
+}
+
+.gray:hover {
+    background-color: #f2f2f0;
+}
+
+
+
+
 /*.key--equal {*/
 /*    background-image: linear-gradient(to bottom, #fe886a, #ff7033);*/
 /*    grid-column: -2;*/
