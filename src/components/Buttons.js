@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
 class Buttons extends Component {
     render() {
-        const {click, operator} = this.props;
+        const {click, operator, ac} = this.props;
         return (
             <div className="calculator__keys">
-                <button name={"AC"} onClick={(e) => click(e.target.name)} className="gray">AC</button>
+                <button name={"AC"} onClick={(e) => click(e.target.name)} className="gray">{ac}</button>
                 <button name={"+/-"} onClick={(e) => click(e.target.name)} className="gray">+/-</button>
                 <button name={"%"} onClick={(e) => click(e.target.name)} className="gray">%</button>
                 <button name={"/"} onClick={(e) => click(e.target.name)} className={operator === "/" ? "clicked" : "key-operator"}>÷</button>
