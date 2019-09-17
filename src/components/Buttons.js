@@ -21,7 +21,7 @@ class Buttons extends Component {
                 <button name={3} onClick={(e) => click(e.target.name)}>3</button>
                 <button name={"+"} onClick={(e) => click(e.target.name)} className={operator === "+" ? "clicked" : "key-operator"}>+</button>
                 <button name={0} onClick={(e) => click(e.target.name)} id="zero">0</button>
-                <button name={","} onClick={(e) => click(e.target.name)}>,</button>
+                <button name={"."} onClick={(e) => click(e.target.name)}>.</button>
                 <button name={"="} onClick={(e) => click(e.target.name)} className="key-equal">=</button>
             </div>
         )

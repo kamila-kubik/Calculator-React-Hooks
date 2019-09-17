@@ -4,14 +4,19 @@ import Display from "./components/Display";
 import Buttons from "./components/Buttons"
 import {useState} from "react";
 
+
 const App = () => {
 
   const [selectedOperator, setOperator] = useState("");
   const [result, setResult] = useState(0);
   const [override, setOverride] = useState(false);
   const [AC, setAC] = useState("AC");
+  const [number1, setN1] = useState(0);
+  const [operator, setOper] = useState("");
+  const [score, setScore] = useState(0);
 
-  const calculate = (n1, n2, op) => {
+
+  const calculate = (n1, op, n2) => {
     let result = 0;
     switch (op) {
       case "+": return result = n1+n2;
@@ -26,13 +31,17 @@ const App = () => {
     if (typeOfAction.indexOf(keyContent) >=0){
       setOperator(keyContent);
       setOverride(true);
+      setN1(result);
+      setOper(keyContent);
     } else {
       setOperator("")
     }
-    const display = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', ','];
+
+    const display = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '.'];
     if(display.indexOf(keyContent) >=0) {
       if (override === true){
         setResult(keyContent);
+        keyContent === "." && setResult("0.");
       } else {
         if (result === 0){
           setResult(keyContent);
@@ -43,9 +52,16 @@ const App = () => {
       setOverride(false);
     }
 
-    if (keyContent === ","){
+    if (keyContent === "."){
+      if(result.indexOf(".") > -1){
+      }
+    }
+    console.log(result);
+
+
+    if (keyContent === "."){
       if (result === 0){
-        setResult("0,")
+        setResult("0.")
       }
     }
 
@@ -63,9 +79,17 @@ const App = () => {
       setResult(0);
     }
 
-  };
+    if (keyContent === "="){
+      const number2 = result;
+      if (operator === ""){
+        setResult(result)
+      } else {
+        setResult(calculate(parseFloat(number1), operator, parseFloat(number2)));
+      }
+      setOverride(true);
+    }
 
-  console.log(result);
+  };
 
   return (
       <div className="container">
